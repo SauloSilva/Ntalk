@@ -7,9 +7,10 @@
 
     = yield :stylesheet
     = stylesheet_link_tag 'application'
+    
     = csrf_meta_tag
 
   %body= yield
   #js
-    =# javascript_include_tag 'application'
-    =# yield :javascript
+    = javascript_include_tag 'application'
+    = yield :javascript
