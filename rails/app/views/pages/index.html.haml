@@ -1,5 +1,8 @@
 %h2 Nosso workshop
-
+.user
+  %input{class: 'user_id'}
+  %button{class: 'get_user'} Buscar usuario
+  
 .form
   %label{ for: 'name' } nome
   %input{ class: 'name', value: '' }
@@ -18,8 +21,10 @@
   .message
     seu input foi ocultado
 
+.galery
+  = link_to image_tag('por_do_sol_thumb.jpg'), 'assets/por_do_sol.jpg', class: 'image'
+
 - content_for :javascript do
   :javascript
-    new Selectors();
-    new DuplicateName();
-    new DuplicateEmail();
+    new User();
+    new Galery();

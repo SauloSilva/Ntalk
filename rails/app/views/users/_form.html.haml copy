@@ -1,0 +1,25 @@
+%h2 Nosso workshop
+
+.form
+  %label{ for: 'name' } nome
+  %input{ class: 'name', value: '' }
+  
+  %label{ for: 'email' } email
+  %input{ class: 'email', value: '' }
+  
+  %label{ for: 'name' } copia do nome
+  %input{ class: 'copy', value: '' }
+    
+  %a{class: 'hide_input'} Ocultar input
+  %a{class: 'show_input'} Mostrar input
+  %a{class: 'copy_name_input'} Duplicar nome
+  %a{class: 'copy_email_input'} Duplicar Email
+
+  .message
+    seu input foi ocultado
+
+- content_for :javascript do
+  :javascript
+    new Selectors();
+    new DuplicateName();
+    new DuplicateEmail();
