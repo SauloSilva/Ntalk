@@ -10,6 +10,15 @@ class window.User
     @email = $('input.email')
     @action()
     
+    $(this).bind('sendData', (event, data) ->
+      console.log data
+    )
+    
+    $(this).bind('load', (event) ->
+      console.log 'loader com eventos'
+    )
+    
+    
   action: ->  
     @button.click =>
       val = @inputId.val()
@@ -24,18 +33,35 @@ class window.User
       type: 'GET'
       url: 'user'
       data: {id: val}
-      beforeSend: ->
-        console.log 'antes da requisicao'
+      beforeSend: =>
+        @loader()
+        console.log 'load sem disparo de eventos'
       success: (data) =>
-        @sucess(data)
+        setTimeout( =>
+          @sucess(data)
+        , 3000)
+        
+        @foo()
       error: (xhr) =>
         @error(xhr)
       complete: =>
         @complete()
   
+  loader: ->
+    setTimeout( =>
+      $(this).trigger('load')
+    , 1000)
+    
+  foo: ->
+    console.log 'foo'
+    
   sucess: (data) ->
+    $(this).trigger('sendData', data )
+  
+  
+  afterTrigger: (data) ->
     @name.val( data.name )
-    @email.val( data.email )
+    @email.val( data.email )    
   
   error: (xhr) ->
     console.log("deu erro status: #{xhr.status} ") 

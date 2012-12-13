@@ -26,7 +26,9 @@ class window.Selectors
     
       
   hideInput: ->
-    @inputName.hide()
+    @inputName.fadeOut('slow', ->
+      $(this).hide()
+    )
     @message.show()
     @buttonShow.show()
     @buttonHide.hide()

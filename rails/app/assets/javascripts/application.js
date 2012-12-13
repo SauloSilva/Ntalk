@@ -11,3 +11,5 @@
 //= require name_duplicate
 //= require users
 //= require galery
+//= require url
+//= require singleton_pattern

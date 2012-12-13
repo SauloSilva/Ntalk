@@ -21,10 +21,16 @@
   .message
     seu input foi ocultado
 
+#form_button{ style: 'height: 1000px; border: 1px solid #ff0000', class: 'furlane' }
+  %button{ class: 'change_url' } Mudar url para /user/new/
+
 .galery
   = link_to image_tag('por_do_sol_thumb.jpg'), 'assets/por_do_sol.jpg', class: 'image'
 
+#tab
+  .tab{ class: 'home'} home
+  .tab{ class: 'contact'} contato
+
 - content_for :javascript do
-  :javascript
-    new User();
-    new Galery();
+  :javascript    
+      $('.tab').myPlugin({option1: 'saulo'})
