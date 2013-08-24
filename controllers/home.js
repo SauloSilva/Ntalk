@@ -11,7 +11,7 @@ module.exports = function(app) {
       if(email && name) {
         var user = req.body.user;
         req.session.user = user;
-        res.redirect('/contatos');
+        res.redirect('/contacts');
       } else {
         res.redirect('/');
       }
