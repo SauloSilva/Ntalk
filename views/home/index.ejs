@@ -1,28 +1,18 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Ntalk - Agenda de contatos</title>
-  </head>
+<% include ../shared/header %>
 
-  <body>
-     <header>
-        <h1>Ntalk</h1>
-        <h4>Bem-vindo!</h4>
-     </header>
+<header>
+  <h1>Ntalk</h1>
+  <h4>Bem-vindo!</h4>
+</header>
 
-     <section>
-        <form action="/login" method="post">
-          <input type="text" name="nome" placeholder="Seu nome">
-          <br>
-          <input type="text" name="email" placeholder="Seu e-mail">
-          <br>
-          <button type="submit">Entrar</button>
-        </form>
-     </section>
+<section>
+  <form action="/login" method="post">
+    <input type="text" name="user[name]" placeholder="Seu nome">
+    <br>
+    <input type="text" name="user[email]" placeholder="Seu e-mail">
+    <br>
+    <button type="submit">Entrar</button>
+  </form>
+</section>
 
-     <footer>
-        <small>Ntalk - Agenda de contatos</small>
-     </footer>
-   </body>
-</html>
+<% include ../shared/footer %>
