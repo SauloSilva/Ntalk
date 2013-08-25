@@ -1,0 +1,14 @@
+<% include ../shared/header %>
+<header>
+   <h2>Ntalk - Contact edit</h2>
+</header>
+
+<section>
+  <form action="/contacts/<%- id %>" method="post">
+    <input type="hidden" name="_method" value="put">
+    <% include ./_form %>
+  </form>
+</section>
+
+<% include ../shared/exit %>
+<% include ../shared/footer %>

@@ -1,10 +1,31 @@
 <% include ../shared/header %>
 <header>
-  <h2>Ntalk - Agenda de contatos</h2>
+  <h2>Ntalk - Contact information</h2>
 </header>
 
 <section>
-  <p>Bem-vindo <%- user.nome %></p>
+  <table>
+
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>E-mail</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% contacts.forEach(function(contact, index) { %>
+        <tr>
+          <td><%- contact.name %></td>
+          <td><%- contact.email %></td>
+          <td>
+            <a href="/contact/<%- index %>">Details</a>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
 </section>
 
 <% include ../shared/exit %>
