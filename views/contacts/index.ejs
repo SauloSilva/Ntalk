@@ -4,6 +4,10 @@
 </header>
 
 <section>
+  <a href='contacts/new'> New contact </a>
+</section>
+
+<section>
   <table>
 
     <thead>
@@ -15,15 +19,21 @@
     </thead>
 
     <tbody>
-      <% contacts.forEach(function(contact, index) { %>
+      <% if (contacts != undefined) { %>
+        <% contacts.forEach(function(contact, index) { %>
+          <tr>
+            <td><%- contact.name %></td>
+            <td><%- contact.email %></td>
+            <td>
+              <a href="/contact/<%- index %>">Details</a>
+            </td>
+          </tr>
+        <% }) %>
+      <% } else { %>
         <tr>
-          <td><%- contact.name %></td>
-          <td><%- contact.email %></td>
-          <td>
-            <a href="/contact/<%- index %>">Details</a>
-          </td>
+          <td> You no have contacts! :( </td>
         </tr>
-      <% }) %>
+      <% } %>
     </tbody>
   </table>
 </section>

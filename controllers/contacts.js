@@ -2,8 +2,10 @@ module.exports = function(app) {
   var ContactsController = {
     index: function(req, res) {
       var user = req.session.user
-        , params = {user: user};
+        , contacts = user.contacts
+        , params = {user: user, contacts: contacts};
 
+      console.log(contacts);
       res.render('contacts', params);
     },
 
@@ -18,32 +20,38 @@ module.exports = function(app) {
       var contact = req.body.contact
         , user = req.session.user;
 
-      user.contact.push(contact);
-      res.redirect('/contact/');
+      if (user.contacts) {
+        user.contacts.push(contact);
+      } else {
+        user.contacts = [contact]
+      }
+
+      res.redirect('/contacts');
     },
 
-    show: function(req, res) {
+    show: function(req, res, next) {
       var id = req.params.id
-        , contato = req.session.user.contact[id]
-        , params = {contact: contact, id: id};
+        , contact = req.session.user.contacts[id]
+        , params =  {contact: contact, id: id};
 
-      res.render('contact/show', params);
+      res.render('contacts/show', params);
     },
 
     edit: function(req, res) {
       var id = req.params.id
         , user = req.session.user
-        , contact = user.contact[id]
+        , contact = user.contacts[id]
         , params = {user: user
                   , contact: contact
                   , id: id};
-        res.render('contact/edit', params);
+
+        res.render('contacts/edit', params);
     },
 
     update: function(req, res) {
       var contact = req.body.contact
         , user = req.session.user;
-      user.contact[req.params.id] = contact;
+      user.contacts[req.params.id] = contact;
       res.redirect('/contacts');
     },
 
@@ -51,7 +59,7 @@ module.exports = function(app) {
       var user = req.session.user
         , id = req.params.id;
 
-      user.contact.splice(id, 1);
+      user.contacts.splice(id, 1);
       res.redirect('/contacts');
     }
   };

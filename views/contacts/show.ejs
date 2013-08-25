@@ -1,4 +1,4 @@
-<% include ../header %>
+<% include ../shared/header %>
 <header>
   <h2>Ntalk - Contact details</h2>
 </header>
@@ -10,9 +10,9 @@
     <p><label>E-mail:</label><%- contact.email %></p>
     <p>
       <button type="submit">Destroy</button>
-      <a href="/contact/<%- id %>/editar">Edit</a>
+      <a href="/contact/<%- id %>/edit">Edit</a>
     </p>
   </form>
 </section>
-<% include ../exit %>
-<% include ../footer %>
+<% include ../shared/exit %>
+<% include ../shared/footer %>
