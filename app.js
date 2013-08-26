@@ -5,10 +5,16 @@ var express = require('express')
   , server = require('http').createServer(app)
   , io = require('socket.io').listen(server);
 
+const KEY = 'ntalk.sid', SECRET = 'ntalk';
+var cookie = express.cookieParser(SECRET)
+  , store = new express.session.MemoryStore()
+  , sessionOptions = {secret: SECRET, key: KEY, store: store}
+  , session = express.session(sessionOptions);
+
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.use(express.cookieParser('ntalk'));
-app.use(express.session());
+app.use(cookie);
+app.use(session);
 app.use(express.bodyParser());
 app.use(express.methodOverride());
 app.use(app.router);
@@ -16,18 +22,27 @@ app.use(express.static(__dirname + '/public'));
 app.use(error.notFound);
 app.use(error.serverError);
 
+io.set('authorization', function(data, accept) {
+  cookie(data, {}, function(err) {
+    var sessionID = data.signedCookies[KEY];
+    store.get(sessionID, function(err, session) {
+      if (err || !session) {
+        accept(null, false);
+      } else {
+        data.session = session;
+        accept(null, true);
+      }
+    });
+  });
+});
+
 load('models')
    .then('controllers')
    .then('routes')
    .into(app);
 
-io.sockets.on('connection', function (client) {
-  client.on('send-server', function (data) {
-    var msg = "<b>" + data.name + ":</b> " + data.msg + "<br>";
-    client.emit('send-client', msg);
-    client.broadcast.emit('send-client', msg);
-  });
-});
+load('sockets')
+  .into(io);
 
 server.listen(3000, function(){
   console.log("init application.");
