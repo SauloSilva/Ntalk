@@ -11,7 +11,7 @@ module.exports = function(app) {
 
     new: function(req, res) {
       var user = req.session.user
-        , params = {user: user};
+        , params = {user: user, contact: {name: '', email: ''}};
 
       res.render('contacts/new', params);
     },

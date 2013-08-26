@@ -1,0 +1,31 @@
+<% include ../shared/header %>
+<script type="text/javascript" src="/javascripts/jquery-2.0.3.min.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script>
+  var socket = io.connect('http://localhost:3000');
+
+  socket.on('send-client', function (msg) {
+    $('#chat').append(msg);
+  });
+
+  var send = function() {
+    var name = $('#name').val();
+    var msg = $('#msg').val();
+    socket.emit('send-server', {name: name, msg: msg});
+  };
+</script>
+
+<header>
+  <h2>Ntalk - Talk</h2>
+</header>
+
+<section>
+  <pre id="chat"></pre>
+  <input type="hidden" id="name" value="<%- user.name %>">
+  <input type="text" id="msg" placeholder="Menssage">
+  <button onclick="send();">Send</button>
+</section>
+
+
+<% include ../shared/exit %>
+<% include ../shared/footer %>
