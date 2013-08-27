@@ -4,6 +4,22 @@ module.exports = function(io) {
     , sockets = io.sockets;
 
   sockets.on('connection', function (client) {
+    var session = client.handshake.session
+      , user = session.user;
+
+    client.set('email', user.email);
+
+    var onlines = sockets.clients();
+
+    onlines.forEach(function(online) {
+      var online = sockets.sockets[online.id];
+
+      online.get('email', function(err, email) {
+        client.emit('notify-onlines', email);
+        client.broadcast.emit('notify-onlines', email);
+      });
+    });
+
     client.on('join', function(room) {
       if(room) {
         room = room.replace('?','');
@@ -19,6 +35,9 @@ module.exports = function(io) {
 
     client.on('disconnect', function () {
       client.get('room', function(error, room) {
+        var msg = "<b>"+ user.name +":</b> saiu.<br>";
+        client.broadcast.emit('notify-offline', user.email);
+        sockets.in(room).emit('send-client', msg);
         client.leave(room);
       });
     });

@@ -2,8 +2,33 @@
 <script src="/socket.io/socket.io.js"></script>
 <script>
   var socket = io.connect('http://localhost:3000');
+
+  var notify = function(data) {
+
+    var notify = $("span[data-email='notify_" + data.el + "']");
+    notify.text(data.msg);
+  };
+
+  socket.on('notify-onlines', function(email) {
+    var opts = {el: email
+      , msg: 'Online'};
+
+    notify(opts);
+  });
+
+  socket.on('notify-offline', function(email) {
+    var opts = {el: email
+      , msg: 'Offline'};
+
+    notify(opts);
+  });
+
   socket.on('new-message', function(data) {
-    var chat = $('#chat_' + data.email);
-    chat.href += '?' + data.room;
+    var opts = {el: data.email
+      , msg: 'New message'};
+
+    notify(opts);
+    var chat = $('chat_' + data.email);
+    chat.href += '?' + data.sala;
   });
 </script>
