@@ -5,16 +5,25 @@ module.exports = function(app) {
     },
 
     login: function(req, res) {
-      var email = req.body.user.email
-        , name = req.body.user.name;
+      var query = { email: req.body.user.email };
 
-      if(email && name) {
-        var user = req.body.user;
-        req.session.user = user;
-        res.redirect('/contacts');
-      } else {
-        res.redirect('/');
-      }
+      User.findOne(query)
+        .select('name email')
+        .exec(function(erro, user){
+          if (usuario) {
+            req.session.user = user;
+            res.redirect('/contacts');
+          } else {
+            User.create(req.body.user, function(erro, user) {
+              if(erro){
+                res.redirect('/');
+              } else {
+                req.session.user = user;
+                res.redirect('/contacts');
+              }
+            });
+          }
+        });
     },
 
     logout: function(req, res) {
