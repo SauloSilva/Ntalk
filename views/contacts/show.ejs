@@ -4,13 +4,13 @@
 </header>
 
 <section>
-  <form action="/contact/<%- id %>" method="post">
+  <form action="/contact/<%- contact.id %>" method="post">
     <input type="hidden" name="_method" value="delete">
     <p><label>Name:</label><%- contact.name %></p>
     <p><label>E-mail:</label><%- contact.email %></p>
     <p>
       <button type="submit">Destroy</button>
-      <a href="/contact/<%- id %>/edit">Edit</a>
+      <a href="/contact/<%- contact.id %>/edit">Edit</a>
     </p>
   </form>
 </section>

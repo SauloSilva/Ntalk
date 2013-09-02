@@ -1,4 +1,6 @@
 module.exports = function(app) {
+  var User = app.models.user;
+
   var HomeController = {
     index: function(req, res) {
       res.render('home/index');
@@ -10,7 +12,7 @@ module.exports = function(app) {
       User.findOne(query)
         .select('name email')
         .exec(function(erro, user){
-          if (usuario) {
+          if (user) {
             req.session.user = user;
             res.redirect('/contacts');
           } else {

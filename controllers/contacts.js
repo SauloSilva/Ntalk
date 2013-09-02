@@ -1,12 +1,15 @@
 module.exports = function(app) {
+  var User = app.models.user;
+
   var ContactsController = {
     index: function(req, res) {
-      var user = req.session.user
-        , contacts = user.contacts
-        , params = {user: user, contacts: contacts};
+      var _id = req.session.user._id
 
-      console.log(contacts);
-      res.render('contacts', params);
+      User.findById(_id, function(error, user){
+        var contacts = user.contacts;
+        var params = {contacts: contacts};
+        res.render('contacts', params);
+      });
     },
 
     new: function(req, res) {
@@ -17,50 +20,62 @@ module.exports = function(app) {
     },
 
     create: function(req, res) {
-      var contact = req.body.contact
-        , user = req.session.user;
+      var _id = req.session.user._id;
 
-      if (user.contacts) {
-        user.contacts.push(contact);
-      } else {
-        user.contacts = [contact]
-      }
+      User.findById(_id, function(error, user){
+        var contact = req.body.contact
+          , contacts = user.contacts;
 
-      res.redirect('/contacts');
+        contacts.push(contact);
+        user.save(function() {
+          res.redirect('/contacts');
+        });
+      });
     },
 
     show: function(req, res, next) {
-      var id = req.params.id
-        , contact = req.session.user.contacts[id]
-        , params =  {contact: contact, id: id};
-
-      res.render('contacts/show', params);
+      var _id = req.session.user._id
+      User.findById(_id, function(error, user){
+        var contactId = req.params.id
+          , contact = user.contacts.id(contactId)
+          , params = {contact: contact}
+        res.render('contacts/show', params);
+      });
     },
 
     edit: function(req, res) {
-      var id = req.params.id
-        , user = req.session.user
-        , contact = user.contacts[id]
-        , params = {user: user
-                  , contact: contact
-                  , id: id};
-
+      var _id = req.session.user._id
+      User.findById(_id, function(error, user){
+        var contactId = req.params.id
+          , contact = user.contacts.id(contactId)
+          , params = {contact: contact}
         res.render('contacts/edit', params);
+      });
     },
 
     update: function(req, res) {
-      var contact = req.body.contact
-        , user = req.session.user;
-      user.contacts[req.params.id] = contact;
-      res.redirect('/contacts');
+      var _id = req.session.user._id
+      User.findById(_id, function(error, user){
+        var contactId = req.params.id
+          , contact = user.contacts.id(contactId);
+
+        contact.name = req.body.contact.name;
+        contact.email = req.body.contact.email;
+        user.save(function(){
+          res.redirect('/contacts');
+        });
+      });
     },
 
     destroy: function(req, res) {
-      var user = req.session.user
-        , id = req.params.id;
-
-      user.contacts.splice(id, 1);
-      res.redirect('/contacts');
+      var _id = req.session.user._id
+      User.findById(_id, function(error, user){
+        var contactId = req.params.id
+        contact = user.contacts.id(contactId).remove();
+        user.save(function(){
+          res.redirect('/contacts');
+        });
+      });
     }
   };
 
