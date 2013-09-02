@@ -1,16 +1,20 @@
 <% include ../shared/header %>
-<script type="text/javascript" src="/javascripts/jquery-2.0.3.min.js"></script>
+<script src="/javascripts/jquery-2.0.3.min.js"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script>
   var socket = io.connect('http://localhost:3000');
 
+  socket.emit('join', window.location.search);
+
   socket.on('send-client', function (msg) {
+    console.log(msg);
     $('#chat').append(msg);
   });
 
   var send = function() {
     var msg = $('#msg').val();
     socket.emit('send-server', msg);
+    $('#msg').val('')
   };
 </script>
 

@@ -28,7 +28,8 @@
       , msg: 'New message'};
 
     notify(opts);
-    var chat = $('chat_' + data.email);
-    chat.href += '?' + data.sala;
+
+    var chat = $("#talk[data-email='" + data.email + "']")
+    chat.attr('href', chat.attr('href') + '?' + data.room);
   });
 </script>
