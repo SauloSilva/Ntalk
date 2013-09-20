@@ -18,8 +18,10 @@ module.exports = function(app) {
           } else {
             User.create(req.body.user, function(erro, user) {
               if(erro){
+                console.log('erro');
                 res.redirect('/');
               } else {
+                console.log('criou');
                 req.session.user = user;
                 res.redirect('/contacts');
               }

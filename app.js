@@ -48,3 +48,5 @@ load('sockets')
 server.listen(3000, function(){
   console.log("init application.");
 });
+
+module.exports = app;

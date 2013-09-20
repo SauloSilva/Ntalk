@@ -18,5 +18,9 @@
     "mocha": "*",
     "should": "*",
     "supertest": "*"
+  },
+  "scripts": {
+    "start": "node app",
+    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha test/*.js"
   }
 }
