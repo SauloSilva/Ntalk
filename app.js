@@ -6,8 +6,6 @@ var express = require('express')
   , io = require('socket.io').listen(server)
   , mongoose = require('mongoose');
 
-global.db = mongoose.connect('mongodb://localhost/ntalk');
-
 const KEY = 'ntalk.sid', SECRET = 'ntalk';
 var cookie = express.cookieParser(SECRET)
   , store = new express.session.MemoryStore()

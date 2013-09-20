@@ -1,4 +1,5 @@
 module.exports = function(app) {
+  var db = require("../middleware/db_connect")();
   var Schema = require('mongoose').Schema;
 
   var contact = Schema({

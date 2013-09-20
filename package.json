@@ -13,5 +13,10 @@
     "socket.io": "0.9.14",
     "mongoose": "3.6.14",
     "redis": "0.8.4"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "supertest": "*"
   }
 }
