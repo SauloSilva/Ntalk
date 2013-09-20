@@ -11,21 +11,23 @@ describe('No controller home', function() {
       });
   });
 
-  it('should render route /exit get', function(done) {
+  it('should render route /exit get', function(done){
     request.get('/exit')
-      .end(function(err, res) {
+      .end(function(err, res){
         res.headers.location.should.eql('/');
         done();
-      });
+    });
   });
 
-  it('should visit route /contacts in login', function(done) {
-    var login = {user: {name: 'teste', email: 'teste@teste.com'}};
+  it('should login and redirect contacts', function(done){
+    var login = {user: {name: 'Teste', email: 'teste@teste'}};
     request.post('/login')
       .send(login)
-      .end(function(err, res) {
+      .end(function(err, res){
+        res.status.should.eql(302)
         res.headers.location.should.eql('/contacts');
-      });
+        done();
+    });
   });
 
   it('should visit route root in incorrect login', function(done) {
@@ -34,6 +36,7 @@ describe('No controller home', function() {
       .send(login)
       .end(function(err, res) {
         res.headers.location.should.eql('/');
+        done();
       });
   });
 });

@@ -21,6 +21,6 @@
   },
   "scripts": {
     "start": "node app",
-    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha test/*.js"
+    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha test/*.js -w -G"
   }
 }
