@@ -1,0 +1,165 @@
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+Cluster 2106 disconnected
+Cluster 2106 exited
+Cluster 2109 disconnected
+Cluster 2109 exited
+Cluster 2107 disconnected
+Cluster 2107 exited
+Cluster 2108 disconnected
+Cluster 2108 exited
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+Cluster 2121 disconnected
+Cluster 2121 exited
+Cluster 2122 disconnected
+Cluster 2122 exited
+Cluster 2120 exited
+Cluster 2120 disconnected
+Cluster 2123 disconnected
+Cluster 2123 exited
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+init application.
+init application.
+Cluster 2286 connected
+Cluster 2287 connected
+init application.
+Cluster 2288 connected
+init application.
+Cluster 2289 connected
+127.0.0.1 - - [Sat, 21 Sep 2013 18:51:41 GMT] "GET / HTTP/1.1" 200 531 "http://localhost:3000/contacts" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:51:57 GMT] "GET / HTTP/1.1" 200 531 "http://localhost:3000/contacts" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:52:01 GMT] "POST /login HTTP/1.1" 302 74 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:52:01 GMT] "GET /contacts HTTP/1.1" 200 1419 "http://localhost:3000/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:52:01 GMT] "GET /javascripts/jquery-2.0.3.min.js HTTP/1.1" 200 93063 "http://localhost:3000/contacts" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:52:47 GMT] "GET /contacts/new HTTP/1.1" 200 568 "http://localhost:3000/contacts" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:52:49 GMT] "POST /contacts/ HTTP/1.1" 302 74 "http://localhost:3000/contacts/new" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:52:49 GMT] "GET /contacts HTTP/1.1" 200 1760 "http://localhost:3000/contacts/new" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:52:49 GMT] "GET /javascripts/jquery-2.0.3.min.js HTTP/1.1" 304 - "http://localhost:3000/contacts" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:52:54 GMT] "GET /contact/523deb01a81533f108000002 HTTP/1.1" 200 655 "http://localhost:3000/contacts" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:52:56 GMT] "DELETE /contact/523deb01a81533f108000002 HTTP/1.1" 302 74 "http://localhost:3000/contact/523deb01a81533f108000002" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:52:56 GMT] "GET /contacts HTTP/1.1" 200 1419 "http://localhost:3000/contact/523deb01a81533f108000002" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+127.0.0.1 - - [Sat, 21 Sep 2013 18:52:56 GMT] "GET /javascripts/jquery-2.0.3.min.js HTTP/1.1" 304 - "http://localhost:3000/contacts" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.76 Safari/537.36"
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+init application.
+init application.
+Cluster 2480 connected
+Cluster 2477 connected
+init application.
+Cluster 2479 connected
+init application.
+Cluster 2478 connected
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+Cluster 2646 disconnected
+Cluster 2646 exited
+Cluster 2649 disconnected
+Cluster 2649 exited
+Cluster 2647 disconnected
+Cluster 2647 exited
+Cluster 2648 disconnected
+Cluster 2648 exited
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+Cluster 3167 disconnected
+Cluster 3169 exited
+Cluster 3167 exited
+Cluster 3166 exited
+Cluster 3166 disconnected
+Cluster 3169 disconnected
+Cluster 3168 disconnected
+Cluster 3168 exited
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+Cluster 3182 disconnected
+Cluster 3182 exited
+Cluster 3183 disconnected
+Cluster 3183 exited
+Cluster 3181 disconnected
+Cluster 3181 exited
+Cluster 3184 disconnected
+Cluster 3184 exited
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+Cluster 3196 disconnected
+Cluster 3196 exited
+Cluster 3198 disconnected
+Cluster 3198 exited
+Cluster 3197 disconnected
+Cluster 3197 exited
+Cluster 3199 disconnected
+Cluster 3199 exited
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+Cluster 3210 disconnected
+Cluster 3210 exited
+Cluster 3212 disconnected
+Cluster 3212 exited
+Cluster 3211 disconnected
+Cluster 3211 exited
+Cluster 3213 disconnected
+Cluster 3213 exited
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+Cluster 3224 disconnected
+Cluster 3225 exited
+Cluster 3224 exited
+Cluster 3225 disconnected
+Cluster 3227 disconnected
+Cluster 3227 exited
+Cluster 3226 disconnected
+Cluster 3226 exited
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+======
+======
+======
+init application.
+Cluster 3246 connected
+======
+init application.
+Cluster 3248 connected
+init application.
+Cluster 3247 connected
+init application.
+Cluster 3249 connected
+info: socket.io started
+info: socket.io started
+info: socket.io started
+info: socket.io started
+development mongodb://localhost/ntalk ====
+development mongodb://localhost/ntalk ====
+development mongodb://localhost/ntalk ====
+development mongodb://localhost/ntalk ====
+init application.
+Cluster 3260 connected
+init application.
+Cluster 3261 connected
+init application.
+Cluster 3263 connected
+init application.
+Cluster 3262 connected

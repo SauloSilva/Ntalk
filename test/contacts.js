@@ -1,5 +1,4 @@
 var app = require('../app')
-  , should = require('should')
   , request = require('supertest')(app);
 
 describe('controller contacts', function() {
@@ -77,12 +76,12 @@ describe('controller contacts', function() {
     });
 
     it('should /contacts in POST /contacts', function(done) {
-      var contact = {contact: {name: 'teste', email: 'teste@teste.com'}};
-      var req = request.post('contacts');
+      var req = request.post('/contacts');
       req.cookies = cookie;
-      req.send(contact).end(function(err, res) {
-        res.headers.location.should.eql('contacts');
-        done();
+      req.send(contact)
+      req.end(function(err, res) {
+          res.headers.location.should.eql('/contacts');
+          done();
       });
     });
   });

@@ -1,10 +1,16 @@
-module.exports = function() {
-  var mongoose = require('mongoose');
-  var env_url = {
+var mongoose = require('mongoose')
+  , singleConnection
+  , env_url = {
     "test": "mongodb://localhost/ntalk_test",
     "development": "mongodb://localhost/ntalk"
-  }
+  };
 
-  var url = env_url[process.env.NODE_ENV || "development"];
-  return mongoose.createConnection(url);
+module.exports = function() {
+  var env = process.env.NODE_ENV || 'development'
+    , url = env_url[env];
+
+  if(!singleConnection) {
+    singleConnection = mongoose.connect(url);
+  }
+  return singleConnection;
 }
