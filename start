@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+sudo ./stop
+npm start
+sudo /usr/local/bin/nginx -c ./nginx.conf
