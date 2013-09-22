@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-sudo kill -9 $(pidof nginx)
+sudo kill -9 $(pidof nginx mongo)
